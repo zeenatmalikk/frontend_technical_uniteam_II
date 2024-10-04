@@ -115,7 +115,7 @@ const EventList: React.FC = () => {
         >
           <i
             className="fa fa-chevron-left"
-            style={{ color: "#AEBBC8", fontSize: "0.9rem",paddingRight:'0.5rem' }}
+            style={{ color: "#AEBBC8", fontSize: "0.9rem",paddingRight:'0.3rem' }}
           ></i>{" "}
           Prev
         </button>
@@ -137,14 +137,14 @@ const EventList: React.FC = () => {
         <button
           onClick={onNext}
           disabled={currentPage === totalPages}
-          className={` py-2 text-secondary rounded font-sans font-bold ${
+          className={`py-2 text-secondary rounded font-sans font-bold ${
             currentPage === totalPages ? "cursor-not-allowed" : "cursor-pointer"
           }`}
         >
           Next
           <i
             className="fa fa-chevron-right"
-            style={{ color: "#AEBBC8", fontSize: "0.9rem",paddingLeft:'0.5rem' }}
+            style={{ color: "#AEBBC8", fontSize: "0.9rem",paddingLeft:'0.4rem' }}
           ></i>{" "}
         </button>
       </div>
