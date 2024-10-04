@@ -105,7 +105,21 @@ const EventList: React.FC = () => {
       </div>
 
       {/* Pagination Controls ---------------------*/}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4 items-center gap-4">
+        <button
+          onClick={onPrev}
+          disabled={currentPage === 1}
+          className={`py-2 text-secondary rounded font-sans font-bold ${
+            currentPage === 1 ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
+        >
+          <i
+            className="fa fa-chevron-left"
+            style={{ color: "#AEBBC8", fontSize: "0.9rem",paddingRight:'0.5rem' }}
+          ></i>{" "}
+          Prev
+        </button>
+
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
@@ -119,6 +133,20 @@ const EventList: React.FC = () => {
             {index + 1}
           </button>
         ))}
+
+        <button
+          onClick={onNext}
+          disabled={currentPage === totalPages}
+          className={` py-2 text-secondary rounded font-sans font-bold ${
+            currentPage === totalPages ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
+        >
+          Next
+          <i
+            className="fa fa-chevron-right"
+            style={{ color: "#AEBBC8", fontSize: "0.9rem",paddingLeft:'0.5rem' }}
+          ></i>{" "}
+        </button>
       </div>
     </div>
   );
