@@ -5,13 +5,13 @@ import { addMonths, subMonths, isSameDay, isSameMonth } from "date-fns";
 import PaginationBtn from "./PaginationBtn";
 import { events } from "../constants";
 
-
 const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   const renderDayContents = (day: number, date: Date) => {
-    // convert the current date to string format "DD/MM/YYYY"
-    const dateString = `${String(day).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+    const dateString = `${String(day).padStart(2, "0")}/${String(
+      date.getMonth() + 1
+    ).padStart(2, "0")}/${date.getFullYear()}`;
 
     // check if there are any events on this date
     const hasEvent = events.some((event) => event.date === dateString);
@@ -61,13 +61,14 @@ const Calendar = () => {
           }
           dayClassName={(date) => {
             const isToday = isSameDay(date, new Date());
-            const inCurrentMonth = isSameMonth(date, startDate); // Compare with selected month
-        
+            // compare with selected month
+            const inCurrentMonth = isSameMonth(date, startDate);
+
             return isToday
               ? "bg-primary text-white rounded-full font-sans text-[15px]"
               : inCurrentMonth
               ? "text-[15px] rounded-full font-sans font-semibold"
-              : "text-gray-400 text-[15px] rounded-full font-sans font-semibold"; // Gray out days outside of current month
+              : "text-gray-400 text-[15px] rounded-full font-sans font-semibold";
           }}
           dateFormatCalendar=" "
         />
