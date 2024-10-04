@@ -82,11 +82,11 @@ const EventList: React.FC = () => {
               </section>
 
               <div className="col-span-7 md:col-span-9 flex flex-col border-l-4 mr-5 border-primary pl-4">
-                <h4 className="text-md font-sans text-primary">
+                <h4 className="text-sm font-medium font-sans text-primary">
                   {event.location}
                 </h4>
                 <h4 className="font-sans text-xl font-bold">{event.title}</h4>
-                <h4 className="font-sans font-medium overflow-hidden text-ellipsis whitespace-nowrap">
+                <h4 className="mt-1 font-light overflow-hidden text-ellipsis whitespace-nowrap text-sm text-gray-400">
                   {event.description}
                 </h4>
               </div>
