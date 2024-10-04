@@ -35,7 +35,7 @@ const PastEventList: React.FC = () => {
             <div key={index} className="flex flex-col mt-3">
               <h4 className="font-bold text-primary">{event.title}</h4>
               <h4 className="font-light text-sm  text-gray-500">{event.description}</h4>
-              <h6 className="font-bold text-sm text-gray-500">{formatDate(event.date)}</h6>{" "}
+              <h6 className="font-bold text-sm text-gray-500"> {formatDate(event.date) + " " + event.date.split("/")[2]}</h6>{" "}
               {/* Use formatDate to format the date */}
             </div>
           ))

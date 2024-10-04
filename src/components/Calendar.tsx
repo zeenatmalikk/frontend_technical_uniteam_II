@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addMonths, subMonths, isSameDay } from "date-fns";
+import { addMonths, subMonths, isSameDay, isSameMonth } from "date-fns";
 import PaginationBtn from "./PaginationBtn";
 import { events } from "../constants";
 
@@ -59,11 +59,16 @@ const Calendar = () => {
           weekDayClassName={() =>
             "text-secondary font-sans font-bold text-[14px]"
           }
-          dayClassName={(date) =>
-            isSameDay(date, new Date())
-              ? " bg-primary text-white rounded-full font-sans text-[15px]"
-              : "text-[15px] rounded-full font-sans font-semibold "
-          }
+          dayClassName={(date) => {
+            const isToday = isSameDay(date, new Date());
+            const inCurrentMonth = isSameMonth(date, startDate); // Compare with selected month
+        
+            return isToday
+              ? "bg-primary text-white rounded-full font-sans text-[15px]"
+              : inCurrentMonth
+              ? "text-[15px] rounded-full font-sans font-semibold"
+              : "text-gray-400 text-[15px] rounded-full font-sans font-semibold"; // Gray out days outside of current month
+          }}
           dateFormatCalendar=" "
         />
       </div>

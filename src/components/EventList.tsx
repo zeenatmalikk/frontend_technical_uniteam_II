@@ -70,11 +70,8 @@ const EventList: React.FC = () => {
       <div className="flex-grow overflow-auto bg-white">
         {displayedEvents.length > 0 ? (
           displayedEvents.map((event, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-12 items-center mb-4 gap-4"
-            >
-              <section className="col-span-3 md:col-span-1 flex flex-col text-left border-r-4 border-primary">
+            <div key={index} className="grid grid-cols-12 items-center mb-4 ">
+              <section className="col-span-3 md:col-span-1 flex flex-col text-left ">
                 <p className="text-sm md:text-xl font-bold pr-4">
                   {formatDate(event.date)}
                 </p>
@@ -84,12 +81,14 @@ const EventList: React.FC = () => {
                 </p>
               </section>
 
-              <div className="col-span-7 md:col-span-9 flex flex-col">
-                <h4 className=" text-md font-sans text-primary">
+              <div className="col-span-7 md:col-span-9 flex flex-col border-l-4 mr-5 border-primary pl-4">
+                <h4 className="text-md font-sans text-primary">
                   {event.location}
                 </h4>
                 <h4 className="font-sans text-xl font-bold">{event.title}</h4>
-                <h4 className="font-sans font-medium">{event.description}</h4>
+                <h4 className="font-sans font-medium overflow-hidden text-ellipsis whitespace-nowrap">
+                  {event.description}
+                </h4>
               </div>
 
               <div className="col-span-2 flex justify-end">
@@ -113,8 +112,8 @@ const EventList: React.FC = () => {
             onClick={() => changePage(index + 1)}
             className={`mx-1 px-4 py-2 rounded ${
               currentPage === index + 1
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200"
+                ? "bg-blue-500 rounded-full text-white font-sans font-bold"
+                : "font-sans font-bold"
             }`}
           >
             {index + 1}
